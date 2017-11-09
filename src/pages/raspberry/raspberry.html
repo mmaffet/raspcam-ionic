@@ -1,0 +1,51 @@
+<!--
+  Generated template for the Raspberry page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Raspberry</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<h2>Casa</h2>
+	  <ion-card>
+	    <ion-card-content>
+	      <ion-item>
+	        IP
+	        <ion-badge item-end>198.212.212.21</ion-badge>
+	      </ion-item>
+	      <ion-item>
+	        Estado
+	        <ion-badge item-end color="secondary">Conectado</ion-badge>
+	      </ion-item>
+	      <ion-item>
+	        Alarma
+	        <ion-badge item-end color="secondary">Normal</ion-badge>
+	      </ion-item>
+	    </ion-card-content>
+	    <ion-row>
+	      <ion-col center text-center>
+	        <button ion-button clear small (click)="goDetalle(1)">
+	          <div>Ver Cámara</div>
+	        </button>
+	      </ion-col>
+	      <ion-col center text-center>
+	        <button ion-button clear small (click)="goDetalle(1)">
+	          <div>Activar Alarma</div>
+	        </button>
+	      </ion-col>
+	    </ion-row>
+	  </ion-card>
+</ion-content>

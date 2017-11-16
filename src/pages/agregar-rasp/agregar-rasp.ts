@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController,NavParams } from 'ionic-angular';
+import { NavController,NavParams, AlertController } from 'ionic-angular';
 /*Providers*/
 import { RaspProvider } from '../../providers/rasp/rasp';
 /**
@@ -16,7 +16,7 @@ export class AgregarRasp {
 
 	input: any;
 
-  	constructor(public navCtrl: NavController, public navParams: NavParams, public rasp: RaspProvider) {
+  	constructor(public navCtrl: NavController, public navParams: NavParams, public rasp: RaspProvider, public alertCtrl: AlertController) {
   		this.input = {
         	nombre: '',
         	ip: '',
@@ -29,8 +29,20 @@ export class AgregarRasp {
   	}
 
   	registrar(){
-      console.log("registrando");
   		this.rasp.insert(this.input);
+      let alert = this.alertCtrl.create({
+      title: 'Raspberry agregada',
+      message: 'Raspberry agregada exitosamente',
+      buttons: [
+        {
+          text: 'OK',
+          handler: () => {
+            this.navCtrl.pop();
+          }
+        }
+      ]
+    });
+    alert.present();
   	}
 
 }

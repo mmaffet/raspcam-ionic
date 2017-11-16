@@ -15,6 +15,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { RaspProvider } from '../providers/rasp/rasp';
 import { HttpModule } from '@angular/http';
 import { Push } from '@ionic-native/push';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { Push } from '@ionic-native/push';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HttpModule,
     RaspProvider,
-    Push
+    Push,
+    InAppBrowser
   ]
 })
 export class AppModule {}

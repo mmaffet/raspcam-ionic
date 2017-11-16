@@ -9,7 +9,7 @@
   <ion-navbar>
     <ion-title>Raspberry</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only>
+      <button ion-button icon-only (click)="eliminar(raspy)">
         <ion-icon name="trash"></ion-icon>
       </button>
     </ion-buttons>
@@ -24,7 +24,7 @@
 	    <ion-card-content>
 	      <ion-item>
 	        IP
-	        <ion-badge item-end>198.212.212.21</ion-badge>
+	        <ion-badge item-end>{{raspy.ip}}</ion-badge>
 	      </ion-item>
 	      <ion-item>
 	        Estado
@@ -37,13 +37,18 @@
 	    </ion-card-content>
 	    <ion-row>
 	      <ion-col center text-center>
-	        <button ion-button clear small (click)="goDetalle(1)">
+	        <button ion-button clear small (click)="verCamara(raspy.ip)">
 	          <div>Ver Cámara</div>
 	        </button>
 	      </ion-col>
 	      <ion-col center text-center>
-	        <button ion-button clear small (click)="goDetalle(1)">
-	          <div>Activar Alarma</div>
+	        <button ion-button clear small (click)="activar(raspy.ip)">
+	          <div>Armar Alarma</div>
+	        </button>
+	      </ion-col>
+	      <ion-col center text-center>
+	        <button ion-button clear small (click)="desactivar(raspy.ip)">
+	          <div>Desactivar Alarma</div>
 	        </button>
 	      </ion-col>
 	    </ion-row>

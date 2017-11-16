@@ -13,7 +13,7 @@ export class RaspProvider {
  
  	rasps: any; //Listado de Raspberries
   	constructor(public http: Http) {
-  		this.rasps = [{id: 1, nombre: "Casa", ip: "127.0.0.1", validado: 1}];
+  		this.rasps = [{nombre: "Casa", ip: "127.0.0.1", validado: 1, status: 0}];
   	}
 
   	getAll(){
@@ -33,7 +33,24 @@ export class RaspProvider {
     }
 
   	insert(raspberry){
-  		this.rasps.push({id: 1, nombre: raspberry.nombre, ip:raspberry.ip, validado: 0});
+  		this.rasps.push({nombre: raspberry.nombre, ip: raspberry.ip, validado: 0});
   	}
+
+    eliminar(ip){
+      this.rasps.splice(this.rasps.indexOf(ip), 1);
+    }
+
+    activar(ip){
+      var response = this.http.get('http://'+ip+':5002/armar')
+        .map(res => res.json());
+       return response;  
+    }
+
+    descactivar(ip){
+      var response = this.http.get('http://'+ip+':5002/desactivar')
+        .map(res => res.json());
+       return response;  
+    }
+
 
 }

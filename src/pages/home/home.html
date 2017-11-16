@@ -22,7 +22,7 @@
       </ion-item>
       <ion-item>
         Estado
-        <ion-badge item-end color="secondary">Conectado</ion-badge>
+          <ion-badge item-end color="secondary">{{Rasp.status}}</ion-badge>
       </ion-item>
       <ion-item>
         Alarma
@@ -31,7 +31,7 @@
     </ion-card-content>
     <ion-row>
       <ion-col center text-center>
-        <button ion-button clear small (click)="goDetalle(Rasp.id)">
+        <button ion-button clear small (click)="goDetalle(Rasp)">
           <div>Detalles</div>
         </button>
       </ion-col>
